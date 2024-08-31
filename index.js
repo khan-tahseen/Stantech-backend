@@ -13,7 +13,6 @@ const port = 3000;
 // Database connection
 connectDB();
 
-// Routes
 app.post('/register', async (req, res) => {
   const { name, email, password } = req.body;
 
@@ -39,7 +38,7 @@ app.post('/login', async (req, res) => {
 
   try {
     const user = await User.findOne({ email });
-    console.log('user => ', user )
+    console.log('user => ', user);
 
     if (!user) {
       return res.status(401).json({ error: 'Invalid credentials' });
@@ -62,5 +61,5 @@ app.post('/login', async (req, res) => {
 });
 
 app.listen(port, () => {
-    console.log(`Server listening on port ${port}`);
+  console.log(`Server listening on port ${port}`);
 });
